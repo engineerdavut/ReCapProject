@@ -11,7 +11,7 @@ namespace ConsoleUI
             ReCapManager reCapManager = new ReCapManager(new InMemoryReCapDal());
             foreach (var car in reCapManager.GetAll())
             {
-                Console.WriteLine("carid: "+car.CarId+"  carbrandid: "+ car.BrandId+ "   carcolorid: "
+                Console.WriteLine("carid: " + car.CarId + "  carbrandid: " + car.BrandId + "   carcolorid: "
                     + car.ColorId + "   carname: " + car.CarName + "   cardailyprice: "
                     + car.DailyPrice + "   cardescription: " + car.Description);
             }
