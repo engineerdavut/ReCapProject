@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-    public class Cars:IEntity
+    public class Car:IEntity
     {
         public int CarId { get; set; }
 
@@ -15,7 +15,7 @@ namespace Entities.Concrete
 
         public string CarName { get; set; }
         public decimal DailyPrice { get; set; }
-        public  string Description { get; set; }
+        public  string CarDescription { get; set; }
 
     }
 }

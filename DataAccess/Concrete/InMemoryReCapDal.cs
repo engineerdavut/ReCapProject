@@ -4,12 +4,13 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Concrete
 {
     public class InMemoryReCapDal : IReCapDal
-    {
+    {   /*
         List<Cars> _cars;
         public InMemoryReCapDal()
         {
@@ -17,17 +18,17 @@ namespace DataAccess.Concrete
             _cars = new List<Cars>
             {
                 new Cars{CarId=1,BrandId=4,ColorId=6,CarName= "ToyotaCorolla"
-                ,DailyPrice=30200, Description="Ciziksiz, 2000 model,beyaz"},
+                ,DailyPrice=130, Description="Ciziksiz, 2000 model,beyaz"},
                 new Cars{CarId=2,BrandId=2,ColorId=6,CarName= "opelinsigna"
-                ,DailyPrice=70000, Description="Ciziksiz, 2010 model,beyaz"},
+                ,DailyPrice=170, Description="Ciziksiz, 2010 model,beyaz"},
                 new Cars{CarId=3,BrandId=1,ColorId=1,CarName= "renoclio"
-                ,DailyPrice=72000, Description="Ciziksiz, 2013 model,kirmizi"},
+                ,DailyPrice=150, Description="Ciziksiz, 2013 model,kirmizi"},
                 new Cars{CarId=4,BrandId=3,ColorId=7,CarName= "fiategea"
-                ,DailyPrice=98000, Description="Ciziksiz, 2016 model,gri"},
+                ,DailyPrice=200, Description="Ciziksiz, 2016 model,gri"},
                 new Cars{CarId=5,BrandId=4,ColorId=5,CarName= "ToyotaCorolla"
-                ,DailyPrice=100200, Description="Ciziksiz, 2019 model,siyah"},
+                ,DailyPrice=300, Description="Ciziksiz, 2019 model,siyah"},
                 new Cars{CarId=6,BrandId=5,ColorId=2,CarName= "Lexus"
-                ,DailyPrice=270000, Description="Ciziksiz, 2021 model,mavi"}
+                ,DailyPrice=600, Description="Ciziksiz, 2021 model,mavi"}
 
             };
         }
@@ -71,6 +72,36 @@ namespace DataAccess.Concrete
         List<Cars> IReCapDal.GetAllByColor(int ColorId)
         {
             return _cars.Where(c => c.ColorId == ColorId).ToList();
+        }
+        */
+        public void Add(Car entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(Car entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Car entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        Car IEntityRepostory<Car>.Get(Expression<Func<Car, bool>> filter)
+        {
+            throw new NotImplementedException();
         }
     }
 }

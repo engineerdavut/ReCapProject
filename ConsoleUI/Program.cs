@@ -8,6 +8,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            /*
             ReCapManager reCapManager = new ReCapManager(new InMemoryReCapDal());
             foreach (var car in reCapManager.GetAll())
             {
@@ -21,6 +22,26 @@ namespace ConsoleUI
             {
                 Console.WriteLine(car.CarName);
             }
+            */
+            ReCapManager carManager1 = new ReCapManager(new EfCarDal());
+            foreach (var car in carManager1.GetAll())
+            {
+                Console.WriteLine(car.CarName);
+            }
+            Console.WriteLine("-----------------------");
+            foreach (var car in carManager1.GetCarsByBrandId(4))
+            {
+
+                Console.WriteLine(car.CarName);
+            }
+            Console.WriteLine("-----------------------");
+            foreach (var car in carManager1.GetCarsByColorId(7))
+            {
+
+                Console.WriteLine(car.CarName);
+            }
+            
+            Console.ReadLine();
         }
     }
 }
