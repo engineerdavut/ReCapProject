@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -40,7 +41,17 @@ namespace ConsoleUI
 
                 Console.WriteLine(car.CarName);
             }
-            
+
+            carManager1.Add(new Car
+            {
+                CarId = 8,
+                BrandId = 6,
+                ColorId = 3,
+                CarName = "volkswagenpassat"
+                ,
+                DailyPrice = 400,
+                CarDescription = "Ciziksiz, 2021 model,beyaz"
+            });
             Console.ReadLine();
         }
     }
