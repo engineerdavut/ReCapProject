@@ -26,7 +26,7 @@ namespace Business.Concrete
             }
             else
             {
-                throw new Exception(" 2 harften kucuk ya da gunluk 0 tl den az kiralama bedeli giremezsiniz");
+                throw new Exception(" 3 harften kucuk ya da gunluk 0 tl den az kiralama bedeli giremezsiniz");
             }
         }
 
