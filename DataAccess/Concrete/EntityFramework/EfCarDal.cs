@@ -20,11 +20,14 @@ namespace DataAccess.Concrete
                 var result = from c in reCapContext.Cars
                              join b in reCapContext.Brands
                              on c.BrandId equals b.BrandId
+                             join co in reCapContext.Colors
+                             on c.ColorId equals co.ColorId
                              select new CarDetailDto
                              {
                                  CarId = c.CarId,
                                  CarName = c.CarName,
                                  BrandName = b.BrandName,
+                                 ColorName=co.ColorName,
                                  DailyPrice = c.DailyPrice
                              };
                 return result.ToList();

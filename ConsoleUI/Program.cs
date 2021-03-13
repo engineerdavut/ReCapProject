@@ -35,7 +35,7 @@ namespace ConsoleUI
             foreach (var car in carManager1.GetCarDetails())
             {
 
-                Console.WriteLine(car.CarName + "     " + car.BrandName);
+                Console.WriteLine(car.CarName + "    " + car.BrandName+"   "+car.ColorName);
             }
             Console.WriteLine("-----------------------");
             foreach (var car in carManager1.GetAll())
@@ -57,7 +57,7 @@ namespace ConsoleUI
 
             carManager1.Add(new Car
             {
-                CarId = 8,
+                CarId = 9,
                 BrandId = 6,
                 ColorId = 3,
                 CarName = "volkswagenpassat"
