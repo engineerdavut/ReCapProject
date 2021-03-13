@@ -1,10 +1,10 @@
-﻿using Entities.Abstract;
+﻿using Core.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess
 {
     public interface IEntityRepostory<T> where T: class, IEntity, new()
     {

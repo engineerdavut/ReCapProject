@@ -24,7 +24,20 @@ namespace ConsoleUI
                 Console.WriteLine(car.CarName);
             }
             */
+
+            BrandManager categoryManager = new BrandManager(new EfBrandDal());
+            foreach (var category in categoryManager.GetAll())
+            {
+                Console.WriteLine(category.BrandName);
+            }
+            Console.WriteLine("-----------------------");
             ReCapManager carManager1 = new ReCapManager(new EfCarDal());
+            foreach (var car in carManager1.GetCarDetails())
+            {
+
+                Console.WriteLine(car.CarName + "     " + car.BrandName);
+            }
+            Console.WriteLine("-----------------------");
             foreach (var car in carManager1.GetAll())
             {
                 Console.WriteLine(car.CarName);

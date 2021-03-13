@@ -6,7 +6,7 @@ using System.Text;
 
 namespace DataAccess.Concrete
 {
-    class ReCapContext : DbContext
+    public class ReCapContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -17,5 +17,7 @@ namespace DataAccess.Concrete
         public DbSet<Brand> Brands { get; set; }
 
         public DbSet<Color> Colors { get; set; }
+
+        
     }
 }
