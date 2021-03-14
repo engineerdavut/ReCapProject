@@ -26,30 +26,30 @@ namespace ConsoleUI
             */
 
             BrandManager categoryManager = new BrandManager(new EfBrandDal());
-            foreach (var category in categoryManager.GetAll())
+            foreach (var category in categoryManager.GetAll().Data)
             {
                 Console.WriteLine(category.BrandName);
             }
             Console.WriteLine("-----------------------");
             ReCapManager carManager1 = new ReCapManager(new EfCarDal());
-            foreach (var car in carManager1.GetCarDetails())
+            foreach (var car in carManager1.GetCarDetails().Data)
             {
 
                 Console.WriteLine(car.CarName + "    " + car.BrandName+"   "+car.ColorName);
             }
             Console.WriteLine("-----------------------");
-            foreach (var car in carManager1.GetAll())
+            foreach (var car in carManager1.GetAll().Data)
             {
                 Console.WriteLine(car.CarName);
             }
             Console.WriteLine("-----------------------");
-            foreach (var car in carManager1.GetCarsByBrandId(4))
+            foreach (var car in carManager1.GetCarsByBrandId(4).Data)
             {
 
                 Console.WriteLine(car.CarName);
             }
             Console.WriteLine("-----------------------");
-            foreach (var car in carManager1.GetCarsByColorId(7))
+            foreach (var car in carManager1.GetCarsByColorId(7).Data)
             {
 
                 Console.WriteLine(car.CarName);

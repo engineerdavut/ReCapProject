@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Constanst;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,23 +18,23 @@ namespace Business.Concrete
             _colorDal = colordal;
         }
 
-        public void Add(Color color)
+        public IResult Add(Color color)
         {
             if (color.ColorName.Length > 2)
             {
                 _colorDal.Add(color);
-                Console.WriteLine("{0} renginiz  veritabanina eklendi"
-                    , color.ColorName);
+                return new SuccessResult(Messages.ColorAdded);
+               // Console.WriteLine("{0} renginiz  veritabanina eklendi"
+               //     , color.ColorName);
             }
-            else
-            {
-                throw new Exception(" 3 harften kucuk renk giremezsiniz");
-            }
+
+                return new ErrorResult(Messages.ColorInvalid);
+            
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colorDal.GetAll();
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
     }
 }

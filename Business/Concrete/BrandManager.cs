@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Core.Constanst;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -16,25 +18,25 @@ namespace Business.Concrete
             _brandDal = brandDal;
         }
 
-        public void Add(Brand brand)
+        public IResult Add(Brand brand)
         {
             if (brand.BrandName.Length > 2 )
             {
                 _brandDal.Add(brand);
+                return new SuccessResult(Messages.BrandAdded);
                 Console.WriteLine("{0} markaniz  veritabanina eklendi"
                     , brand.BrandName);
             }
-            else
-            {
-                throw new Exception(" 3 harften kucuk marka giremezsiniz");
-            }
+
+                return new ErrorResult(Messages.BrandInvalid);
+
         }
 
  
 
-        public List<Brand> GetAll()
+        public IDataResult<List<Brand>> GetAll()
         {
-            return _brandDal.GetAll();
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
  
