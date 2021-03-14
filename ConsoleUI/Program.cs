@@ -32,16 +32,34 @@ namespace ConsoleUI
             }
             Console.WriteLine("-----------------------");
             ReCapManager carManager1 = new ReCapManager(new EfCarDal());
-            foreach (var car in carManager1.GetCarDetails().Data)
+            var result1 = carManager1.GetCarDetails();
+            if (result1.success)
             {
+                foreach (var car in result1.Data)
+                {
 
-                Console.WriteLine(car.CarName + "    " + car.BrandName+"   "+car.ColorName);
+                    Console.WriteLine(car.CarName + "    " + car.BrandName + "   " + car.ColorName);
+                }
             }
-            Console.WriteLine("-----------------------");
-            foreach (var car in carManager1.GetAll().Data)
+            else
             {
-                Console.WriteLine(car.CarName);
+                Console.WriteLine(result1.message);
             }
+
+            Console.WriteLine("-----------------------");
+            var result = carManager1.GetAll();
+            if (result.success)
+            {
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.CarName);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.message); 
+            }
+
             Console.WriteLine("-----------------------");
             foreach (var car in carManager1.GetCarsByBrandId(4).Data)
             {

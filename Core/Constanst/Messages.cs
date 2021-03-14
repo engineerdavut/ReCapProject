@@ -8,7 +8,7 @@ namespace Core.Constanst
     {
         public static string CarNameInvalid = " 3 harften kucuk ya da gunluk 0 tl den az kiralama bedeli giremezsiniz";
         public static string CarAdded = " Araciniz veritabanina eklenmistir.";
-        public static string MaintenanceTime= " Sistem bakimda.";
+        public static string MaintenanceTime = " Sistem bakimda.";
         public static string CarListened=" Araclar listelendi. " ;
 
         public static string BrandInvalid = " 3 harften kucuk marka giremezsiniz";
