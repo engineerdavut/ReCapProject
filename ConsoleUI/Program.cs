@@ -1,5 +1,6 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using System;
 
@@ -24,6 +25,16 @@ namespace ConsoleUI
                 Console.WriteLine(car.CarName);
             }
             */
+            RentDetailManager rentDetailManager = new RentDetailManager(new EfRentDetailDal());
+            RentDetail rentDetail = new RentDetail
+            {
+
+                CarId = 2,
+                CustomerId = 3,
+                RentDate = new DateTime(2021, 03, 10)
+
+            };
+            Console.WriteLine(rentDetailManager.Add(rentDetail).Message);
 
             BrandManager categoryManager = new BrandManager(new EfBrandDal());
             foreach (var category in categoryManager.GetAll().Data)
@@ -33,7 +44,7 @@ namespace ConsoleUI
             Console.WriteLine("-----------------------");
             ReCapManager carManager1 = new ReCapManager(new EfCarDal());
             var result1 = carManager1.GetCarDetails();
-            if (result1.success)
+            if (result1.Success)
             {
                 foreach (var car in result1.Data)
                 {
@@ -43,12 +54,12 @@ namespace ConsoleUI
             }
             else
             {
-                Console.WriteLine(result1.message);
+                Console.WriteLine(result1.Message);
             }
 
             Console.WriteLine("-----------------------");
             var result = carManager1.GetAll();
-            if (result.success)
+            if (result.Success)
             {
                 foreach (var car in result.Data)
                 {
@@ -57,7 +68,7 @@ namespace ConsoleUI
             }
             else
             {
-                Console.WriteLine(result.message); 
+                Console.WriteLine(result.Message); 
             }
 
             Console.WriteLine("-----------------------");
@@ -78,8 +89,7 @@ namespace ConsoleUI
                 CarId = 9,
                 BrandId = 6,
                 ColorId = 3,
-                CarName = "volkswagenpassat"
-                ,
+                CarName = "volkswagenpassat",
                 DailyPrice = 400,
                 CarDescription = "Ciziksiz, 2021 model,beyaz"
             });

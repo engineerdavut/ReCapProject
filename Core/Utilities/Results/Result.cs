@@ -7,16 +7,16 @@ namespace Core.Utilities.Results
 {
     public class Result:IResult
     {
-        public bool success { get;  }
+        public bool Success { get;  }
 
-        public string message { get; }
+        public string Message { get; }
 
         public Result(bool success, string message) : this(success)
         {
-            this.message = message;
+            Message = message;
         }
         public Result(bool success) { 
-            this.success = success;
+            Success = success;
         }
     }
 }

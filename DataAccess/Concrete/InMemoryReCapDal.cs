@@ -107,9 +107,6 @@ namespace DataAccess.Concrete
             throw new NotImplementedException();
         }
 
-        Car IEntityRepostory<Car>.Get(Expression<Func<Car, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

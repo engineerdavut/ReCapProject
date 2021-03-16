@@ -13,6 +13,8 @@ namespace DataAccess.Concrete
 {
     public class EfCarDal : EfEntityFrameworkBase<Car, ReCapContext>, IReCapDal
     {
+
+
         public List<CarDetailDto> GetCarDetails()
         {
             using (ReCapContext reCapContext=new ReCapContext())
@@ -34,5 +36,7 @@ namespace DataAccess.Concrete
 
             }
         }
+
+
     }
 }
