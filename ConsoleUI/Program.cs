@@ -29,9 +29,10 @@ namespace ConsoleUI
             RentDetail rentDetail = new RentDetail
             {
 
-                CarId = 2,
+                CarId = 1,
                 CustomerId = 3,
-                RentDate = new DateTime(2021, 03, 10)
+                RentDate = new DateTime(2021, 03, 14),
+                ReturnDate = new DateTime(2021, 03, 16)
 
             };
             Console.WriteLine(rentDetailManager.Add(rentDetail).Message);

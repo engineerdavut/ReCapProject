@@ -43,5 +43,22 @@ namespace Business.Concrete
            // _rentDetailDal.GetAvailableCars();
             return new SuccessDataResult<List<RentDetail>>(Messages.CarToBeRented);
         }
+
+        public IResult Delete(RentDetail rentDetail)
+        {
+            _rentDetailDal.Delete(rentDetail);
+            return new SuccessResult(Messages.RentDeleted);
+        }
+
+        public IResult Update(RentDetail rentDetail)
+        {
+            if (rentDetail.RentDate>DateTime.Now)
+            {
+                return new ErrorResult(Messages.RentalError);
+
+            }
+            _rentDetailDal.Update(rentDetail);
+            return new SuccessResult(Messages.CarRentedUpdated);
+        }
     }
 }

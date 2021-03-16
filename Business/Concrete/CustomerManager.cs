@@ -54,5 +54,15 @@ namespace Business.Concrete
             }
             return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.GetCustomerDetails());
         }
+
+        public IResult Update(Customer customer)
+        {
+            if (customer.CustomerName.Length > 2 && customer.CompanyName.Length > 1)
+            {
+                _customerDal.Update(customer);
+                return new SuccessResult(Messages.CustomerUpdated);
+            }
+            return new ErrorResult(Messages.Invalid);
+        }
     }
 }

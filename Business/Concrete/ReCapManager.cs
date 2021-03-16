@@ -28,10 +28,15 @@ namespace Business.Concrete
                     , car.CarName, car.DailyPrice);
                 _reCapDal.Add(car);
             }
-            else
-            {
+
                 return new ErrorResult(Messages.CarNameInvalid);
-            }
+            
+        }
+
+        public IResult Delete(Car car)
+        {
+            _reCapDal.Delete(car);
+            return new SuccessResult(Messages.CarDeleted);
         }
 
         public IDataResult<List<Car>> GetAll()
@@ -60,6 +65,19 @@ namespace Business.Concrete
         public IDataResult<List<Car>> GetCarsByColorId(int id)
         {
             return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.ColorId == id));
+        }
+
+        public IResult Update(Car car)
+        {
+            if (car.CarName.Length > 2 && car.DailyPrice > 0)
+            {
+                return new SuccessResult(Messages.CarAdded);
+                Console.WriteLine("{0} araciniz gunluk {1} tl tutarla veritabanind guncellendi"
+                    , car.CarName, car.DailyPrice);
+                _reCapDal.Update(car);
+            }
+
+            return new ErrorResult(Messages.CarNameInvalid);
         }
     }
 }

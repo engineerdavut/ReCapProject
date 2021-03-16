@@ -47,5 +47,17 @@ namespace Business.Concrete
             _userDal.Delete(user);
             return new SuccessResult(Messages.UserDeleted);
         }
+
+        public IResult Update(User user)
+        {
+            if (user.FirstName.Length > 2 && user.LastName.Length > 1
+                     && user.Password.Length > 6 && user.Password.Length < 17)
+            {
+                _userDal.Update(user);
+                return new SuccessResult(Messages.UserUpdated);
+
+            }
+            return new ErrorResult(Messages.Invalid);
+        }
     }
 }
