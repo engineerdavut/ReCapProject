@@ -43,6 +43,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
+        public IDataResult<Brand> GetBrandById(int brandId)
+        {
+            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.BrandId == brandId)
+                , Messages.GetBrand);
+        }
+
         public IResult Update(Brand brand)
         {
             if (brand.BrandName.Length > 2)

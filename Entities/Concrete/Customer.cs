@@ -12,7 +12,6 @@ namespace Entities.Concrete
 
         public int UserId { get; set; }
 
-        public string CustomerName { get; set; }
         public string CompanyName { get; set; }
     }
 }

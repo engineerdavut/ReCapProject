@@ -48,6 +48,12 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(),Messages.CarListened);
         }
 
+        public IDataResult<Car> GetCarById(int carId)
+        {
+            return new SuccessDataResult<Car>(_reCapDal.Get(c => c.CarId == carId)
+                , Messages.GetCar);
+        }
+
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             if (DateTime.Now.Hour == 23)
@@ -57,14 +63,14 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_reCapDal.GetCarDetails());
         }
 
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
         {
-            return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.BrandId == id));
+            return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.BrandId == brandId));
         }
 
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<Car>> GetCarsByColorId(int colorId)
         {
-            return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.ColorId == id));
+            return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.ColorId == colorId));
         }
 
         public IResult Update(Car car)

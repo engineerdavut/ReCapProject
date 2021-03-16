@@ -52,7 +52,7 @@ namespace Core.Constanst
 
         public static string RentDeleted = " Kiralama bilgisi silindi.";
 
-        public static string CarRentedUpdated = "Arac kiralama bilgisi guncelllendi";
+        public static string CarRentedUpdated = " Arac kiralama bilgisi guncelllendi";
 
         public static string CarDeleted = " Kiralik araciniz veritabanindan silindi.";
 
@@ -60,10 +60,18 @@ namespace Core.Constanst
 
         public static string ColorDeleted = " Renk  silindi.";
 
-        public static string ColorUpdated = "Renk guncellendi";
+        public static string ColorUpdated = " Renk guncellendi";
 
         public static string BrandDeleted = " Marka silindi";
 
-        public static string BrandUpdated = "Marka guncellendi";
+        public static string BrandUpdated = " Marka guncellendi";
+
+        public static string GetBrand = " Marka bilgisi. ";
+
+        public static string GetColor = " Renk Bilgisi.";
+
+        public static string GetCar = "  Araç Bilgisi.";
+
+        public static string GetRentDetail = " Kiralama Bilgisi.";
     }
 }

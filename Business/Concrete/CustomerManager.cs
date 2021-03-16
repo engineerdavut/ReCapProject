@@ -20,7 +20,7 @@ namespace Business.Concrete
         }
         public IResult Add(Customer customer)
         {
-            if (customer.CustomerName.Length > 2 && customer.CompanyName.Length > 1)
+            if ( customer.CompanyName.Length > 1)
             {
                 _customerDal.Add(customer);
                 return new SuccessResult(Messages.CustomerAdded);
@@ -38,12 +38,18 @@ namespace Business.Concrete
 
         public IDataResult<List<Customer>> GetAll()
         {
-            return new SuccessDataResult<List<Customer>>(Messages.CustomerListened);
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(),Messages.CustomerListened);
         }
 
         public IDataResult<Customer> GetCustomerById(int customerId)
         {
-            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.CustomerId == customerId),Messages.GetCustomer);
+            return new SuccessDataResult<Customer>(_customerDal.Get(c => c.CustomerId == customerId)
+                , Messages.GetCustomer);
+        }
+
+        public IDataResult<List<Customer>> GetCustomerByUserId(int userId)
+        {
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(c => c.UserId == userId));
         }
 
         public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
@@ -57,7 +63,7 @@ namespace Business.Concrete
 
         public IResult Update(Customer customer)
         {
-            if (customer.CustomerName.Length > 2 && customer.CompanyName.Length > 1)
+            if ( customer.CompanyName.Length > 1)
             {
                 _customerDal.Update(customer);
                 return new SuccessResult(Messages.CustomerUpdated);
