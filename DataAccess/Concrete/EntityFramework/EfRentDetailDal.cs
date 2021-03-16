@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from c in reCapContext.Cars
                              join rd in reCapContext.RentDetails
                              on c.CarId equals rd.CarId
-                             
+                             where rd.ReturnDate!=null
                              select new AvailableCarDto { CarId = c.CarId, IsAvailable = true };
 
                 return result.ToList();

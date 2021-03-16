@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Business.Abstract
 
         IDataResult<List<RentDetail>> GetRentDetailByCustomerId(int customerId);
 
-        IDataResult<List<RentDetail>> GetAvailableCars();
+        IDataResult<List<AvailableCarDto>> GetAvailableCars();
 
         IResult Add(RentDetail rentDetail);
 

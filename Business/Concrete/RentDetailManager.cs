@@ -9,6 +9,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Collections.Generic;
 using System.Text;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -38,10 +39,12 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarRented);
         }
 
-        public IDataResult<List<RentDetail>> GetAvailableCars()
+        public IDataResult<List<AvailableCarDto>> GetAvailableCars()
         {
-           // _rentDetailDal.GetAvailableCars();
-            return new SuccessDataResult<List<RentDetail>>(Messages.CarToBeRented);
+            // _rentDetailDal.GetAvailableCars();
+            //_rentDetailDal.GetAvailableCars(),
+         
+            return new SuccessDataResult<List<AvailableCarDto>>(_rentDetailDal.GetAvailableCars(),Messages.CarToBeRented);
         }
 
         public IResult Delete(RentDetail rentDetail)
