@@ -73,5 +73,8 @@ namespace Core.Constanst
         public static string GetCar = "  Araç Bilgisi.";
 
         public static string GetRentDetail = " Kiralama Bilgisi.";
+        internal static string FileToSave = " Dosya yolu belirlendi,kadedildi.";
+
+        public static string CarImageLimitExceeded = "Bir aracın en fazla 5 tane fotosu olabilir.";
     }
 }

@@ -19,7 +19,10 @@ namespace DataAccess.Concrete.EntityFramework
                 var result = from c in reCapContext.Customers
                              join u in reCapContext.Users
                              on c.UserId equals u.UserId
-                             select new CustomerDetailDto { CustomerId = c.UserId, UserName = u.FirstName + " - " + u.LastName, CompanyName = c.CompanyName };
+                             select new CustomerDetailDto { CustomerId = c.UserId, UserName = u.FirstName
+                             + " - " + u.LastName,
+                                 CompanyName = c.CompanyName
+                             };
 
                 return result.ToList();
 
