@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Core.Constanst
@@ -76,5 +78,12 @@ namespace Core.Constanst
         internal static string FileToSave = " Dosya yolu belirlendi,kadedildi.";
 
         public static string CarImageLimitExceeded = "Bir aracın en fazla 5 tane fotosu olabilir.";
+        public static string AuthorizationDenied="Yetkiniz yok.";
+        public static string UserRegistered;
+        public static string AccessTokenCreated;
+        public static string UserAlreadyExists;
+        public static User UserNotFound;
+        public static string SuccessfulLogin;
+        public static User PasswordError;
     }
 }

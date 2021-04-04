@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Constanst;
@@ -20,6 +21,7 @@ namespace Business.Concrete
         {
             _customerDal = customerDal;
         }
+        [SecuredOperation("Customer.add,admin")]
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult Add(Customer customer)
         {

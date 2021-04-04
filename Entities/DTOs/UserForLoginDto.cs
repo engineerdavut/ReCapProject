@@ -5,10 +5,9 @@ using System.Text;
 
 namespace Entities.DTOs
 {
-    public class AvailableCarDto:IDto
+    public class UserForLoginDto:IDto
     {
-        public int CarId { get; set; }
-
-        public bool IsAvailable { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
