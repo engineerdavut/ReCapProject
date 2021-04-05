@@ -3,6 +3,7 @@ using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Constanst;
 using Core.Utilities.Results;
@@ -83,7 +84,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.ColorId == colorId));
         }
-
+        [TransactionScopeAspect]
         public IResult TransactionalOperation(Car car)
         {
             _reCapDal.Update(car);
