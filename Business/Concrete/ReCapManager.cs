@@ -26,7 +26,7 @@ namespace Business.Concrete
         }
         
         [CacheAspect]
-        [SecuredOperation("Recaps.add,admin")]
+        [SecuredOperation("ReCaps.Add,Admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("IReCapService.Get")]
         public IResult Add(Car car)
