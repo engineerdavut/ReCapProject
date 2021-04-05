@@ -79,11 +79,12 @@ namespace Core.Constanst
 
         public static string CarImageLimitExceeded = "Bir aracın en fazla 5 tane fotosu olabilir.";
         public static string AuthorizationDenied="Yetkiniz yok.";
-        public static string UserRegistered;
-        public static string AccessTokenCreated;
-        public static string UserAlreadyExists;
-        public static User UserNotFound;
-        public static string SuccessfulLogin;
-        public static User PasswordError;
+        public static string UserRegistered="Kullanici olusturuldu";
+        public static string AccessTokenCreated="Erisim tokeni olusturuldu";
+        public static string UserAlreadyExists="Kullanici zaten kayitli";
+        public static string UserNotFound="Kullanici bulunamadi";
+        public static string SuccessfulLogin="Giris basarili";
+        public static string PasswordError="Sifre hatali";
+        public static string CarUpdated="Arac guncellendi.......";
     }
 }

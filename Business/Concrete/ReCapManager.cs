@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using Business.BusinessAspects.Autofac;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Constanst;
 using Core.Utilities.Results;
@@ -21,8 +23,11 @@ namespace Business.Concrete
         {
             _reCapDal = reCapDal;
         }
+        
+        [CacheAspect]
         [SecuredOperation("Recaps.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
+        [CacheRemoveAspect("IReCapService.Get")]
         public IResult Add(Car car)
         {
             // if (car.CarName.Length > 2 && car.DailyPrice > 0)
@@ -43,6 +48,7 @@ namespace Business.Concrete
             _reCapDal.Delete(car);
             return new SuccessResult(Messages.CarDeleted);
         }
+        [PerformanceAspect(5)]
         [ValidationAspect(typeof(CarValidator))]
         public IDataResult<List<Car>> GetAll()
         {
@@ -77,6 +83,14 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.ColorId == colorId));
         }
+
+        public IResult TransactionalOperation(Car car)
+        {
+            _reCapDal.Update(car);
+            _reCapDal.Add(car);
+            return new SuccessResult(Messages.CarUpdated);
+        }
+
         [ValidationAspect(typeof(CarValidator))]
         public IResult Update(Car car)
         {
