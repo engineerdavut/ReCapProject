@@ -10,5 +10,6 @@ namespace DataAccess.Abstract
     public interface IRentDetailDal:IEntityRepostory<RentDetail>
     {
         List<AvailableCarDto> GetAvailableCars();
+        List<RentalsDetailDto> GetRentalsDetail();
     }
 }

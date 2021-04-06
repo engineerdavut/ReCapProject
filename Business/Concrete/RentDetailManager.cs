@@ -82,5 +82,10 @@ namespace Business.Concrete
             return new SuccessDataResult<RentDetail>(_rentDetailDal.Get(c => c.RentDetailId == rentDetailId)
                 , Messages.GetRentDetail);
         }
+
+        public IDataResult<List<RentalsDetailDto>> GetRentalsDetail()
+        {
+            return new SuccessDataResult<List<RentalsDetailDto>>(_rentDetailDal.GetRentalsDetail(), Messages.RentalsDetailListed);
+        }
     }
 }

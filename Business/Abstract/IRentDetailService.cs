@@ -19,6 +19,8 @@ namespace Business.Abstract
 
         IDataResult<List<AvailableCarDto>> GetAvailableCars();
 
+        IDataResult<List<RentalsDetailDto>> GetRentalsDetail();
+
         IResult Add(RentDetail rentDetail);
 
 

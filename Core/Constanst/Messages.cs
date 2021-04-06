@@ -86,5 +86,6 @@ namespace Core.Constanst
         public static string SuccessfulLogin="Giris basarili";
         public static string PasswordError="Sifre hatali";
         public static string CarUpdated="Arac guncellendi.......";
+        public static string RentalsDetailListed = "Rent detayları listelendi.";
     }
 }
