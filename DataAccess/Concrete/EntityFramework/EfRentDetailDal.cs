@@ -39,13 +39,11 @@ namespace DataAccess.Concrete.EntityFramework
                              join c in reCapContext.Cars
                              on rd.CarId equals c.CarId                            
                              join cu in reCapContext.Customers
-                             on rd.CustomerId equals cu.CustomerId
-                             from ca in reCapContext.Cars
+                             on rd.CustomerId equals cu.CustomerId                             
                              join b in reCapContext.Brands
-                             on ca.BrandId equals b.BrandId
-                             from cus in reCapContext.Customers
+                             on c.BrandId equals b.BrandId                            
                              join u in reCapContext.Users
-                             on cus.UserId equals u.UserId
+                             on cu.UserId equals u.UserId
                              select new RentalsDetailDto {
                                  
                                  RentDetailId = rd.RentDetailId,
