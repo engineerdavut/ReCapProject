@@ -33,18 +33,18 @@ namespace Business.Concrete
             //    return new ErrorResult(Messages.ColorInvalid);
             
         }
-        [ValidationAspect(typeof(ColorValidator))]
+        
         public IResult Delete(Color color)
         {
             _colorDal.Delete(color);
             return new SuccessResult(Messages.ColorDeleted);
         }
-        [ValidationAspect(typeof(ColorValidator))]
+        
         public IDataResult<List<Color>> GetAll()
         {
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
         }
-        [ValidationAspect(typeof(ColorValidator))]
+        
         public IDataResult<Color> GetColorById(int colorId)
         {
             return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == colorId)

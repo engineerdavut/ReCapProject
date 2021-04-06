@@ -20,7 +20,7 @@ namespace Business.Concrete
         {
             _userDal = userDal;
         }
-        [ValidationAspect(typeof(UserValidator))]
+       
         public IDataResult<List<User>> GetAll()
         {
             if (DateTime.Now.Hour == 23)
@@ -41,12 +41,12 @@ namespace Business.Concrete
          //   }
          //   return new ErrorResult(Messages.Invalid);
         }
-        [ValidationAspect(typeof(UserValidator))]
+        
         public IDataResult<User> GetUserById(int userId)
         {
             return new SuccessDataResult<User>(_userDal.Get(u => u.UserId == userId),Messages.GetUser);
         }
-        [ValidationAspect(typeof(UserValidator))]
+        
         public IResult Delete(User user)
         {
             _userDal.Delete(user);
@@ -64,7 +64,7 @@ namespace Business.Concrete
          //   }
         //    return new ErrorResult(Messages.Invalid);
         }
-
+        [ValidationAspect(typeof(UserValidator))]
         public void Add2(User user)
         {
             _userDal.Add(user);

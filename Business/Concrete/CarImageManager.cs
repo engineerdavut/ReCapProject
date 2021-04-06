@@ -44,24 +44,24 @@ namespace Business.Concrete
 
 
 
-        [ValidationAspect(typeof(CarImageValidator))]
+        
         public IResult Delete(CarImage carImage)
         {
             FileHelper.Delete(carImage.ImagePath);
             _carImageDal.Delete(carImage);
             return new SuccessResult();
         }
-        [ValidationAspect(typeof(CarImageValidator))]
+        
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
-        [ValidationAspect(typeof(CarImageValidator))]
+        
         public IDataResult<CarImage> GetCarImageById(int carImageId)
         {
             return new SuccessDataResult<CarImage>(_carImageDal.Get(ci => ci.Id == carImageId));
         }
-        [ValidationAspect(typeof(CarImageValidator))]
+        
         public IDataResult<List<CarImage>> GetCarImagesByCarId(int carId)
         {
             IResult result = BusinessRules.Run(CheckIfCarImageNull(carId));
@@ -75,7 +75,7 @@ namespace Business.Concrete
         }
 
 
-        [ValidationAspect(typeof(CarImageValidator))]
+        
         public IDataResult<List<ImageDetailDto>> GetImageDetails()
         {
             return new SuccessDataResult<List<ImageDetailDto>>(_carImageDal.GetCarDetails());

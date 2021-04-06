@@ -24,7 +24,7 @@ namespace Business.Concrete
             _rentDetailDal = rentDetailDal;
         }
 
-        [ValidationAspect(typeof(RentDetailValidator))]
+        
         public IDataResult<List<RentDetail>> GetAll()
         {
             _rentDetailDal.GetAll();
@@ -41,7 +41,7 @@ namespace Business.Concrete
             _rentDetailDal.Add(rentDetail);
             return new SuccessResult(Messages.CarRented);
         }
-        [ValidationAspect(typeof(RentDetailValidator))]
+        
         public IDataResult<List<AvailableCarDto>> GetAvailableCars()
         {
             // _rentDetailDal.GetAvailableCars();
@@ -49,7 +49,7 @@ namespace Business.Concrete
          
             return new SuccessDataResult<List<AvailableCarDto>>(_rentDetailDal.GetAvailableCars(),Messages.CarToBeRented);
         }
-        [ValidationAspect(typeof(RentDetailValidator))]
+        
         public IResult Delete(RentDetail rentDetail)
         {
             _rentDetailDal.Delete(rentDetail);
@@ -66,17 +66,17 @@ namespace Business.Concrete
             _rentDetailDal.Update(rentDetail);
             return new SuccessResult(Messages.CarRentedUpdated);
         }
-        [ValidationAspect(typeof(RentDetailValidator))]
+        
         public IDataResult<List<RentDetail>> GetRentDetailByCarId(int carId)
         {
             return new SuccessDataResult<List<RentDetail>>(_rentDetailDal.GetAll(rd => rd.CarId == carId));
         }
-        [ValidationAspect(typeof(RentDetailValidator))]
+        
         public IDataResult<List<RentDetail>> GetRentDetailByCustomerId(int customerId)
         {
             return new SuccessDataResult<List<RentDetail>>(_rentDetailDal.GetAll(rd => rd.CustomerId == customerId));
         }
-        [ValidationAspect(typeof(RentDetailValidator))]
+        
         public IDataResult<RentDetail> GetRentDetailById(int rentDetailId)
         {
             return new SuccessDataResult<RentDetail>(_rentDetailDal.Get(c => c.RentDetailId == rentDetailId)

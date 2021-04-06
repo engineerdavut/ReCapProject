@@ -33,18 +33,18 @@ namespace Business.Concrete
             //    return new ErrorResult(Messages.BrandInvalid);
 
         }
-        [ValidationAspect(typeof(BrandValidator))]
+        
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
             return new SuccessResult(Messages.BrandDeleted);
         }
-        [ValidationAspect(typeof(BrandValidator))]
+        
         public IDataResult<List<Brand>> GetAll()
         {
             return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
-        [ValidationAspect(typeof(BrandValidator))]
+        
         public IDataResult<Brand> GetBrandById(int brandId)
         {
             return new SuccessDataResult<Brand>(_brandDal.Get(c => c.BrandId == brandId)

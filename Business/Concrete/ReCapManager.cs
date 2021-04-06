@@ -43,14 +43,14 @@ namespace Business.Concrete
                // return new ErrorResult(Messages.CarNameInvalid);
             
         }
-        [ValidationAspect(typeof(CarValidator))]
+        
         public IResult Delete(Car car)
         {
             _reCapDal.Delete(car);
             return new SuccessResult(Messages.CarDeleted);
         }
         [PerformanceAspect(5)]
-        [ValidationAspect(typeof(CarValidator))]
+        
         public IDataResult<List<Car>> GetAll()
         {
             if (DateTime.Now.Hour == 23)
@@ -59,13 +59,13 @@ namespace Business.Concrete
             }
             return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(),Messages.CarListened);
         }
-        [ValidationAspect(typeof(CarValidator))]
+       
         public IDataResult<Car> GetCarById(int carId)
         {
             return new SuccessDataResult<Car>(_reCapDal.Get(c => c.CarId == carId)
                 , Messages.GetCar);
         }
-        [ValidationAspect(typeof(CarValidator))]
+        
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             if (DateTime.Now.Hour == 23)
@@ -74,12 +74,12 @@ namespace Business.Concrete
             }
             return new SuccessDataResult<List<CarDetailDto>>(_reCapDal.GetCarDetails());
         }
-        [ValidationAspect(typeof(CarValidator))]
+        
         public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
         {
             return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.BrandId == brandId));
         }
-        [ValidationAspect(typeof(CarValidator))]
+        
         public IDataResult<List<Car>> GetCarsByColorId(int colorId)
         {
             return new SuccessDataResult<List<Car>>(_reCapDal.GetAll(p => p.ColorId == colorId));

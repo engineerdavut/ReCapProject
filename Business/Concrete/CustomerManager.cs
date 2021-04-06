@@ -32,30 +32,30 @@ namespace Business.Concrete
           //  }
           //  return new ErrorResult(Messages.Invalid);
         }
-        [ValidationAspect(typeof(CustomerValidator))]
+        
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
             return new SuccessResult(Messages.CustomerDeleted);
         }
 
-        [ValidationAspect(typeof(CustomerValidator))]
+        
         public IDataResult<List<Customer>> GetAll()
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(),Messages.CustomerListened);
         }
-        [ValidationAspect(typeof(CustomerValidator))]
+        
         public IDataResult<Customer> GetCustomerById(int customerId)
         {
             return new SuccessDataResult<Customer>(_customerDal.Get(c => c.CustomerId == customerId)
                 , Messages.GetCustomer);
         }
-        [ValidationAspect(typeof(CustomerValidator))]
+        
         public IDataResult<List<Customer>> GetCustomerByUserId(int userId)
         {
             return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(c => c.UserId == userId));
         }
-        [ValidationAspect(typeof(CustomerValidator))]
+        
         public IDataResult<List<CustomerDetailDto>> GetCustomerDetails()
         {
             if (DateTime.Now.Hour == 23)
