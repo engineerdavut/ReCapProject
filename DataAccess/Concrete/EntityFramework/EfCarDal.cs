@@ -15,11 +15,11 @@ namespace DataAccess.Concrete
     {
 
 
-        public List<CarDetailDto> GetCarDetails()
+        public List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null)
         {
             using (ReCapContext reCapContext=new ReCapContext())
             {
-                var result = from c in reCapContext.Cars
+                var result = from c in  filter== null? reCapContext.Cars:reCapContext.Cars.Where(filter)
                              join b in reCapContext.Brands
                              on c.BrandId equals b.BrandId
                              join co in reCapContext.Colors
@@ -29,8 +29,12 @@ namespace DataAccess.Concrete
                                  CarId = c.CarId,
                                  CarName = c.CarName,
                                  BrandName = b.BrandName,
-                                 ColorName=co.ColorName,
-                                 DailyPrice = c.DailyPrice
+                                 ColorName = co.ColorName,
+                                 DailyPrice = c.DailyPrice,
+                                 Image = (from i in reCapContext.CarImages
+                                          where i.CarId==c.CarId select i.ImagePath
+                                        ).ToList()
+
                              };
                 return result.ToList();
 

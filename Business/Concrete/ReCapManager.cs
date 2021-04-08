@@ -13,6 +13,7 @@ using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Business.Concrete
 {
@@ -53,7 +54,7 @@ namespace Business.Concrete
         
         public IDataResult<List<Car>> GetAll()
         {
-            if (DateTime.Now.Hour == 23)
+            if (DateTime.Now.Hour == 22)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
@@ -65,10 +66,16 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_reCapDal.Get(c => c.CarId == carId)
                 , Messages.GetCar);
         }
-        
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailById(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_reCapDal.GetCarDetails(c => c.CarId == carId));
+        }
+
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            if (DateTime.Now.Hour == 23)
+            Thread.Sleep(3000);
+            if (DateTime.Now.Hour == 22)
             {
                 return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
             }

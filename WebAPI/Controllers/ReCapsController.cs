@@ -30,9 +30,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetCarsByBrandId")]
-        public IActionResult GetCarsByBrandId(int id)
+        public IActionResult GetCarsByBrandId(int brandId)
         {
-            var result = _reCapService.GetCarsByBrandId(id);
+            var result = _reCapService.GetCarsByBrandId(brandId);
             if (result.Success)
             {
                 return Ok(result);
@@ -40,9 +40,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetCarsByColorId")]
-        public IActionResult GetCarsByColorId(int id)
+        public IActionResult GetCarsByColorId(int colorId)
         {
-            var result = _reCapService.GetCarsByColorId(id);
+            var result = _reCapService.GetCarsByColorId(colorId);
             if (result.Success)
             {
                 return Ok(result);
@@ -60,16 +60,27 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetCarById")]
-        public IActionResult GetCarById(int id)
+        public IActionResult GetCarById(int carId)
         {
-            var result = _reCapService.GetCarById(id);
+            var result = _reCapService.GetCarById(carId);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-        
+        [HttpGet("GetCarDetailById")]
+        public IActionResult GetCarDetailById(int carId)
+        {
+            var result = _reCapService.GetCarDetailById(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
         [HttpPost("add")]
         public IActionResult Add(Car car)
         {
