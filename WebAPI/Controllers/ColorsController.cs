@@ -30,9 +30,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetColorById")]
-        public IActionResult GetColorById(int id)
+        public IActionResult GetColorById(int colorId)
         {
-            var result = _colorService.GetColorById(id);
+            var result = _colorService.GetColorById(colorId);
             if (result.Success)
             {
                 return Ok(result);

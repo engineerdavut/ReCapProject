@@ -27,7 +27,7 @@ namespace Business.Concrete
         }
         
         [CacheAspect]
-        [SecuredOperation("ReCaps.Add,Admin")]
+        //[SecuredOperation("ReCaps.Add,Admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("IReCapService.Get")]
         public IResult Add(Car car)
@@ -51,7 +51,8 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
         [PerformanceAspect(5)]
-        
+        [CacheAspect]
+        [CacheRemoveAspect("IReCapService.Get")]
         public IDataResult<List<Car>> GetAll()
         {
             if (DateTime.Now.Hour == 22)

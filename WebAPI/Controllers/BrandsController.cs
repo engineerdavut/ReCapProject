@@ -30,9 +30,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("GetBrandById")]
-        public IActionResult GetBrandById(int id)
+        public IActionResult GetBrandById(int brandId)
         {
-            var result = _brandService.GetBrandById(id);
+            var result = _brandService.GetBrandById(brandId);
             if (result.Success)
             {
                 return Ok(result);
